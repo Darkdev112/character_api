@@ -5,7 +5,9 @@ import com.learnspring.playerapi.entity.Player;
 import com.learnspring.playerapi.entity.Weapon;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class PlayerDAOImpl implements PlayerDAO{
 
     private EntityManager entityManager;
