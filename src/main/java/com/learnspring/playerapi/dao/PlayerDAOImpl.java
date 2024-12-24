@@ -15,15 +15,18 @@ public class PlayerDAOImpl implements PlayerDAO{
         this.entityManager  = entityManager;
     }
 
+    @Override
     public void create(Player player){
         entityManager.persist(player);
     }
 
+    @Override
     public Player find(int id){
         Player foundPlayer = entityManager.find(Player.class,id);
         return foundPlayer;
     }
 
+    @Override
     public Player attack(int performer, int observer){
         Player actor = entityManager.find(Player.class,performer);
         Player receiver = entityManager.find(Player.class,observer);
@@ -43,6 +46,7 @@ public class PlayerDAOImpl implements PlayerDAO{
         return updatedReceiver;
     }
 
+    @Override
     public Player heal(int id, int points){
         Player foundPlayer = entityManager.find(Player.class,id);
 
