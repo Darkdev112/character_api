@@ -16,26 +16,27 @@ public class WeaponController {
         this.weaponService = weaponService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/search/{id}")
     public Weapon searchWeapon(@PathVariable int id){
         Weapon foundWeapon = weaponService.search(id);
         return foundWeapon;
     }
 
-    @PostMapping("/")
+    @PostMapping("/build")
     public Weapon buildWeapon(@RequestBody Weapon weapon){
         weapon.setId(0);
+        System.out.println(weapon);
         Weapon updatedWeapon = weaponService.build(weapon);
         return updatedWeapon;
     }
 
-    @PutMapping("/")
+    @PutMapping("/upgrade")
     public Weapon upgradeWeapon(@RequestBody Weapon weapon){
         Weapon updatedWeapon = weaponService.build(weapon);
         return updatedWeapon;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/discard/{id}")
     public Weapon discardWeapon(@PathVariable int id){
         Weapon discardedWeapon = weaponService.discard(id);
         return discardedWeapon;
