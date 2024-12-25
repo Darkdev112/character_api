@@ -19,22 +19,15 @@ public class WeaponServiceImpl implements  WeaponService{
 
     @Override
     @Transactional
-    public void build(Weapon weapon){
-        weaponDAO.build(weapon);
+    public Weapon build(Weapon weapon){
+        Weapon updatedWeapon = weaponDAO.build(weapon);
+        return updatedWeapon;
     }
 
     @Override
     public Weapon search(int id){
         Weapon foundWeapon = weaponDAO.search(id);
         return foundWeapon;
-    }
-
-    @Override
-    @Transactional
-    public Weapon upgrade(Weapon weapon){
-        Weapon upgradedWeapon = weaponDAO.upgrade(weapon);
-        return upgradedWeapon;
-
     }
 
     @Override
