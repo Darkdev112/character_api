@@ -19,7 +19,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 
     @Override
     public void create(Player player){
-        entityManager.persist(player);
+        entityManager.merge(player);
     }
 
     @Override

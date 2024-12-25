@@ -17,7 +17,7 @@ public class WeaponDAOImpl implements WeaponDAO {
 
     @Override
     public void build(Weapon weapon) {
-        entityManager.persist(weapon);
+        entityManager.merge(weapon);
     }
 
     @Override
