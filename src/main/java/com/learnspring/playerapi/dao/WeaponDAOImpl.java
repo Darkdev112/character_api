@@ -16,20 +16,15 @@ public class WeaponDAOImpl implements WeaponDAO {
     }
 
     @Override
-    public void build(Weapon weapon) {
-        entityManager.merge(weapon);
+    public Weapon build(Weapon weapon) {
+        Weapon theWeapon = entityManager.merge(weapon);
+        return theWeapon;
     }
 
     @Override
     public Weapon search(int id){
         Weapon foundWeapon = entityManager.find(Weapon.class,id);
         return foundWeapon;
-    }
-
-    @Override
-    public Weapon upgrade(Weapon weapon){
-        Weapon updatedWeapon = entityManager.merge(weapon);
-        return updatedWeapon;
     }
 
     @Override
